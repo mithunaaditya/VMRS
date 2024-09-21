@@ -1,9 +1,9 @@
-class reminder{
+public class Reminder{
     int reminderId;
     String duedate;
     String message;
 
-    reminder(int reminderId, String duedate, String message){
+    Reminder(int reminderId, String duedate, String message){
         this.reminderId = reminderId;
         this.duedate = duedate;
         this.message = message;

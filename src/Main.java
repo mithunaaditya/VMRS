@@ -1,14 +1,13 @@
+import io.javalin.Javalin;
+
 public class Main {
     public static void main(String[] args) {
-        MaintenanceRecord record = new MaintenanceRecord(1,"Oil Change", "12/09/24", 22.54, "Chennai");
-        MaintenanceRecord record2 = new MaintenanceRecord(2,"Gas Leak","10/10/24", 21.23, "Kolkata");
-
-        Vehicle veh = new Vehicle(101, "Sedan","TopEnd",2005,20.00);
-
-        veh.addMaintenanceRecord(record);
-        veh.addMaintenanceRecord(record2);
-
-        veh.getMaintenanceHistory();
-        veh.getVehicleProfile();
+        var app = Javalin.create(config -> {
+            config.bundledPlugins.enableCors( cors -> {
+                cors.addRule(it -> { it.anyHost(); });
+            });
+                })
+                .get("/", ctx -> ctx.result("{\"text\": \"Hello World\"}"))
+                .start(7070);
     }
 }

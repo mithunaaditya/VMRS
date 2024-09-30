@@ -1,4 +1,6 @@
-public class MaintenanceRecord {
+import java.io.Serializable;
+
+public class MaintenanceRecord implements Serializable {
     int recordID;
     String serviceType;
     String serviceDate;

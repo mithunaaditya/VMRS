@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VehicleOwner {
+public class VehicleOwner implements Serializable {
     int ownerID;
     String name;
     String contactInfo;

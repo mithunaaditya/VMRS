@@ -25,4 +25,16 @@ public class VehicleOwner implements Serializable {
     public void receiveMaintenanceAlert() {}
 
     public void viewNearbyServiceCenters() {}
+
+    public String getProfile() {
+        StringBuilder data = new StringBuilder("{\"ownerID\":" + ownerID + ", \"name\":\"" + name + "\", \"contactInfo\":\"" + contactInfo + "\", \"vehicles\":[");
+
+        for (Vehicle x: this.vehicles) {
+            data.append(x.vehicleID).append(",");
+        }
+        data.deleteCharAt(data.lastIndexOf(","));
+        data.append("]}");
+
+        return data.toString();
+    }
 }
